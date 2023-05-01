@@ -1,9 +1,12 @@
+package HomeWork1;
+
 import java.util.Scanner;
 import java.util.Arrays;
 import java.time.LocalDateTime;
 import java.util.Random;
+
 public class HomeTask1 {
-//1. Написать метод, принимающий на вход два аргумента: len и initialValue, и
+    //1. Написать метод, принимающий на вход два аргумента: len и initialValue, и
 // возвращающий одномерный массив типа int длиной len, каждая ячейка которого равна initialValue;
     public static void main(String[] args) {
 //        task1();
@@ -61,7 +64,8 @@ public class HomeTask1 {
             System.out.println();
         }
     }
-    public static void task4(){
+
+    public static void task4() {
         //4. В консоли запросить имя пользователя. В зависимости от текущего времени, вывести приветствие вида:
 //        "Доброе утро, <Имя>!", если время от 05:00 до 11:59
 //        "Добрый день, <Имя>!", если время от 12:00 до 17:59;
