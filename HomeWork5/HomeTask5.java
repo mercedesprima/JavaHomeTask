@@ -4,6 +4,7 @@ public class HomeTask5 {
     public static void main(String[] args) {
         ex1_2();
     }
+
     public static void ex1_2() {
 // Реализуйте структуру телефонной книги с помощью HashMap, учитывая, что 1 человек может иметь несколько телефонов.
 // Пусть дан список сотрудников: Иван Иванов, Светлана Петрова, Кристина Белова, Анна Мусина, Анна Крутова, Иван Юрин,
@@ -32,25 +33,28 @@ public class HomeTask5 {
             }
             phonebook.put(employee, phones);
         }
-        System.out.println(phonebook);
+        for (Map.Entry<String, List<String>> item : phonebook.entrySet()) {
+            System.out.printf("%s: %s\n", item.getKey(), item.getValue());}
+//        System.out.println(phonebook);
 
-        Map<String, Integer> nameCounts = new HashMap<>();
-        for (String employee : phonebook.keySet()) {
-            String[] names = employee.split(" ");
-            String firstName = names[0];
-            if (nameCounts.containsKey(firstName)) {
-                nameCounts.put(firstName, nameCounts.get(firstName) + 1);
-            } else {
-                nameCounts.put(firstName, 1);
+            Map<String, Integer> nameCounts = new HashMap<>();
+            for (String employee : phonebook.keySet()) {
+                String[] names = employee.split(" ");
+                String firstName = names[0];
+                if (nameCounts.containsKey(firstName)) {
+                    nameCounts.put(firstName, nameCounts.get(firstName) + 1);
+                } else {
+                    nameCounts.put(firstName, 1);
+                }
             }
-        }
-        List<Map.Entry<String, Integer>> sortedNameCounts = new ArrayList<>(nameCounts.entrySet());
-        sortedNameCounts.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
-        System.out.println("Повторяющиеся имена:");
-        for (Map.Entry<String, Integer> entry : sortedNameCounts) {
-            if (entry.getValue() > 1) {
-                System.out.println(entry.getKey() + ": " + entry.getValue() + " раз(а)");
+            List<Map.Entry<String, Integer>> sortedNameCounts = new ArrayList<>(nameCounts.entrySet());
+            sortedNameCounts.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+            System.out.println("Повторяющиеся имена:");
+            for (Map.Entry<String, Integer> entry : sortedNameCounts) {
+                if (entry.getValue() > 1) {
+                    System.out.println(entry.getKey() + ": " + entry.getValue() + " раз(а)");
+                }
             }
         }
     }
-}
+
